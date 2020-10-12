@@ -41,16 +41,17 @@ for com in range(len(components_list)):
 
     #CLICKS on the button "Ver más" so all the content starts loading
     driver.find_element_by_id("btnMore").send_keys(Keys.ENTER)
+    time.sleep(1)
 
     #SCROLL TO BOTTOM to load all the content
     current_scroll_position, new_height= 0, 1 #start position and height of the scroll
-    scroll_speed = 10 #SPEED of the scroll, depends on YOUR INTERNET, if your time of page loading is slow DECREASE the number
+    scroll_speed = 20 #SPEED of the scroll, depends on YOUR INTERNET, if your time of page loading is slow DECREASE the number
 
     #starts scrolling
     while current_scroll_position <= new_height:
         current_scroll_position += scroll_speed
         driver.execute_script("window.scrollTo(0, {});".format(current_scroll_position))
-        time.sleep(0.01) #time to let the page load
+        time.sleep(0.005) #time to let the page load
         new_height = driver.execute_script("return document.body.scrollHeight")
 
     #GETTING THE PRODUCT INFORMATION
