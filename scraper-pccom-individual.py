@@ -41,7 +41,7 @@ driver.find_element_by_id("btnMore").send_keys(Keys.ENTER)
 
 #SCROLL TO BOTTOM to load all the content                            
 current_scroll_position, new_height= 0, 1 #start position and height of the scroll                           
-scroll_speed = 50 #SPEED of the scroll, depends on YOUR INTERNET, if your time of page loading is slow DECREASE the number                           
+scroll_speed = 30 #SPEED of the scroll, depends on YOUR INTERNET, if your time of page loading is slow DECREASE the number                           
 
 #starts scrolling                            
 while current_scroll_position <= new_height:                             
