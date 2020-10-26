@@ -4,10 +4,10 @@ from selenium.webdriver.common.keys import Keys
 from datetime import datetime
 import pandas as pd
 import time
-
+start = time.time()
 #Previously download the DRIVER depending on which BROWSER are you going to use
 #in this case I am using chrome
-#download chrome driver depending on your borwser VERSION
+#download chrome driver depending on your browser VERSION
 #download page https://chromedriver.chromium.org/downloads
 driver = webdriver.Chrome('/Users/manutaberner/Downloads/chromedriver') #path to driver
 
@@ -31,7 +31,7 @@ category_list = []
 #'modding'
 #'cables-internos-de-pc'
 #'conectividad'
-componentes = 'ventiladores'
+componentes = 'procesadores'
 webpage = 'https://www.pccomponentes.com/'+componentes                           
 driver.get(webpage)                          
 time.sleep(2)                            
@@ -54,9 +54,10 @@ while current_scroll_position <= new_height:
 names = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy-product-link']")                                        
 prices = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy-product-link']")                           
 brands = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy-product-link']")                               
-categories = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy-product-link']")                               
+categories = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy-product-link']") 
 
 
+rows = 0
 for p in range(len(names)):                          
     product_list.append(names[p].text)                           
     precio = prices[p].get_attribute("data-price")                           
@@ -64,7 +65,10 @@ for p in range(len(names)):
     marca = brands[p].get_attribute("data-brand")                            
     brand_list.append(marca)                             
     categoria = categories[p].get_attribute("data-category")                             
-    category_list.append(categoria)                              
+    category_list.append(categoria)         
+
+#debugger information
+print('Total ROWS: '+str(rows)+' '+str(categoria))                               
 
 #CREATING THE DATAFRAME
 data_tuples = list(zip(product_list[0:],price_list[0:],brand_list[0:],category_list[0:]))
@@ -74,8 +78,17 @@ print(df)
 
 #Output to CSV format
 now = datetime.now() # current date and time
-date_time = now.strftime("%m/%d/%Y_%H:%M:%S")
-df.to_csv('pccom-componentes_.csv',index = False, encoding='utf-8')
+date_time = now.strftime("%d_%m_%Y_%H%M%S")
+file_name = 'pccom-componentes_'+date_time+'.csv'
+df.to_csv(file_name,index = False, encoding='utf-8')
 
-#close the driver
+#total time of execution of the script
+end = time.time()
+total_time = end - start
+total_time = str(round(total_time,2))
+print()
+print('Time of the SCRIPT execution: '+ total_time +' seconds')
+print()
+
+#close the driver and the browser gets closed
 driver.close()

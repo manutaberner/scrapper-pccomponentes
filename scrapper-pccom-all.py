@@ -14,7 +14,7 @@ driver = webdriver.Chrome('/Users/manutaberner/Downloads/chromedriver') #path to
 product_list = [] #list of the product names
 price_list = [] #list of the product prices
 brand_list = [] #list of the product brands
-category_list = [] #list of the prudct category
+category_list = [] #list of the product categories
 
 #List of the components websites
 components_list = ['placas-base',
@@ -41,11 +41,11 @@ for com in range(len(components_list)):
 
     #CLICKS on the button "Ver más" so all the content starts loading
     driver.find_element_by_id("btnMore").send_keys(Keys.ENTER)
-    time.sleep(1)
+    time.sleep(2)
 
     #SCROLL TO BOTTOM to load all the content
     current_scroll_position, new_height= 0, 1 #start position and height of the scroll
-    scroll_speed = 20 #SPEED of the scroll, depends on YOUR INTERNET, if your time of page loading is slow DECREASE the number
+    scroll_speed = 15 #SPEED of the scroll, depends on YOUR INTERNET, if your time of page loading is slow DECREASE the number
 
     #starts scrolling
     while current_scroll_position <= new_height:
@@ -58,8 +58,7 @@ for com in range(len(components_list)):
     names = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy-product-link']")            
     prices = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy-product-link']")
     brands = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy-product-link']")    
-    categories = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy-product-link']")    
-
+    categories = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy-product-link']")   
     rows = 0
     for p in range(len(names)):
         product_list.append(names[p].text)
@@ -84,8 +83,9 @@ print(df)
 
 #Output to CSV format
 now = datetime.now() # current date and time
-date_time = now.strftime("%m/%d/%Y_%H:%M:%S")
-df.to_csv('pccom-componentes_.csv',index = False, encoding='utf-8')
+date_time = now.strftime("%d_%m_%Y_%H%M%S")
+file_name = 'pccom-componentes_'+date_time+'.csv'
+df.to_csv(file_name,index = False, encoding='utf-8')
 
 #total time of execution of the script
 end = time.time()
@@ -94,6 +94,9 @@ total_time = str(round(total_time,2))
 print()
 print('Time of the SCRIPT execution: '+ total_time +' seconds')
 print()
+print('**********************************************************')
+print('THE FILE NAME CONTAINS THE DATE AND HOUR IN WHICH IS SAVED')
+print('**********************************************************')
 
 #close the driver and the browser gets closed
 driver.close()
