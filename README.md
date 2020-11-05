@@ -1,14 +1,14 @@
-Práctica 1: Web scraping
-Descripción
-Esta práctica se ha realizado bajo el contexto de la asignatura Tipología y ciclo de vida de los datos, perteneciente al Máster en Ciencia de Datos de la Universitat Oberta de Catalunya. En ella, se aplican técnicas de web scraping mediante el lenguaje de programación Python para extraer así datos de la web PlaneCrashInfo y generar un dataset.
+# Práctica 1: Web scraping
 
-Miembros del equipo
-La actividad ha sido realizada de manera individual por Teguayco Gutiérrez González.
+## Descripción
+Esta práctica se ha realizado bajo el contexto de la asignatura Tipología y ciclo de vida de los datos, perteneciente al Máster en Ciencia de Datos de la Universitat Oberta de Catalunya. En ella, se aplican técnicas de web scraping mediante el lenguaje de programación Python para extraer así datos de la web pccomponentes.com y generar un dataset de los componentes que hay en su sección de componentes.
 
-Ficheros del código fuente
-src/main.py: punto de entrada al programa. Inicia el proceso de scraping.
-src/scraper.py: contiene la implementación de la clase AccidentsScraper cuyos métodos generan el conjunto de datos a partir de la base de datos online PlaneCrashInfo.
-src/reason_classifier.py: contiene la implementación de la clase que se encarga de asignar una causa a un resumen de accidente dado. Para ello, utiliza la librería TextBlob.
-Recursos
-Lawson, R. (2015). Web Scraping with Python. Packt Publishing Ltd. Chapter 2. Scraping the Data.
-Mitchel, R. (2015). Web Scraping with Python: Collecting Data from the Modern Web. O'Reilly Media, Inc. Chapter 1. Your First Web Scraper.
+## Miembros del equipo
+La actividad ha sido realizada en grupo por Manuel Taberner Llorca y Andrés Pérez Santano.
+
+## Ficheros del código fuente
+* scraper-pccom-all.py: scrapper que realiza el scrapping de todos los componentes de la sección componentes
+* scraper-pccom-individual.py: scrapper que realiza el scrapping de cada componente de la web seleccionando de forma manual la categoría del componente, es más rápido que utilizar el anteriro código si solo se quiero conseguir la información sobre una categoría de componentes.
+* PRAC1 Web Scraping.pdf: pdf de la práctica realizada por Andrés Pérez y Manuel Taberner
+* pccom_componentes_fecha.csv: fichero que contiene el dataset
+
