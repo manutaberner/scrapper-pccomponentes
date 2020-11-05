@@ -5,6 +5,14 @@ from datetime import datetime
 import pandas as pd
 import time
 start = time.time()
+print()
+print('**********************************************************')
+print('SCRAPPING STARTING...')
+print('**********************************************************')
+print()
+print()
+print()
+print("THIS PROCESS CAN HAVE A DURATION OF MORE THAN 20 MINUTES")
 #Previously download the DRIVER depending on which BROWSER are you going to use
 #in this case I am using chrome
 #download chrome driver depending on your borwser VERSION

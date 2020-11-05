@@ -15,6 +15,7 @@ product_list = []
 price_list = []
 brand_list = []
 category_list = []
+#rating_list = []
 
 #getting the web page, SELECT WHICH ONE BY CHANGING THE VARIABLE "componentes"
 #'placas-base
@@ -31,7 +32,7 @@ category_list = []
 #'modding'
 #'cables-internos-de-pc'
 #'conectividad'
-componentes = 'procesadores'
+componentes = 'discos-duros'
 webpage = 'https://www.pccomponentes.com/'+componentes                           
 driver.get(webpage)                          
 time.sleep(2)                            
@@ -55,7 +56,7 @@ names = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy
 prices = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy-product-link']")                           
 brands = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy-product-link']")                               
 categories = driver.find_elements_by_xpath("//a[@class='c-product-card__title-link cy-product-link']") 
-
+#ratings = driver.find_elements_by_xpath("//div[@class='c-product-card__availability disponibilidad-inmediata cy-product-availability-date']")
 
 rows = 0
 for p in range(len(names)):                          
@@ -66,6 +67,8 @@ for p in range(len(names)):
     brand_list.append(marca)                             
     categoria = categories[p].get_attribute("data-category")                             
     category_list.append(categoria)         
+    #rating_list.append(ratings[p].text)
+    rows += 1
 
 #debugger information
 print('Total ROWS: '+str(rows)+' '+str(categoria))                               
@@ -79,7 +82,7 @@ print(df)
 #Output to CSV format
 now = datetime.now() # current date and time
 date_time = now.strftime("%d_%m_%Y_%H%M%S")
-file_name = 'pccom-componentes_'+date_time+'.csv'
+file_name = 'pccom_ind_componentes_'+date_time+'.csv'
 df.to_csv(file_name,index = False, encoding='utf-8')
 
 #total time of execution of the script
