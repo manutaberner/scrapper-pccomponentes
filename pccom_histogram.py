@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-dataset = pd.read_csv('/Users/manutaberner/Google Drive/UOC/Tipologia y ciclos/PRAC1/scrapper-pccomponentes/pccom-componentes_.csv')
+dataset = pd.read_csv('/Users/manutaberner/Google Drive/UOC/Tipologia y ciclos/PRAC1/scrapper-pccomponentes/pccom-componentes.csv')
 
 dataset.head()
 

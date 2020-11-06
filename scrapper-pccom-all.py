@@ -92,7 +92,7 @@ print(df)
 #Output to CSV format
 #now = datetime.now() # current date and time
 #date_time = now.strftime("%d_%m_%Y_%H%M%S")
-file_name = 'pccom-componentes_'+date_time+'.csv'
+file_name = 'pccom-componentes.csv'
 df.to_csv(file_name,index = False, encoding='utf-8')
 
 #total time of execution of the script
