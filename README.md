@@ -9,6 +9,7 @@ La actividad ha sido realizada en grupo por Manuel Taberner Llorca y Andrés Pé
 ## Ficheros del código fuente
 * **scraper-pccom-all.py:** scrapper que realiza el scrapping de todos los componentes de la sección componentes
 * **scraper-pccom-individual.py:** scrapper que realiza el scrapping de cada componente de la web seleccionando de forma manual la categoría del componente, es más rápido que utilizar el anteriro código si solo se quiero conseguir la información sobre una categoría de componentes.
+* **pccom_histogram.py:** código que crea un histograma de las cantidades de diferentes tipos de componentes
 * **PRAC1 Web Scraping.pdf:** pdf de la práctica realizada por Andrés Pérez y Manuel Taberner
-* **pccom_componentes_fecha.csv:** fichero que contiene el dataset
+* **pccom_componentes.csv:** fichero que contiene el dataset
 
