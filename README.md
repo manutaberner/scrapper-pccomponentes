@@ -12,4 +12,5 @@ La actividad ha sido realizada en grupo por Manuel Taberner Llorca y Andrés Pé
 * **pccom_histogram.py:** código que crea un histograma de las cantidades de diferentes tipos de componentes
 * **PRAC1 Web Scraping.pdf:** pdf de la práctica realizada por Andrés Pérez y Manuel Taberner
 * **pccom_componentes.csv:** fichero que contiene el dataset
+* **histograma_productos.png:** imagen del histograma
 
