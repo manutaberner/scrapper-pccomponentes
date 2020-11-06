@@ -90,8 +90,8 @@ print()
 print(df)
 
 #Output to CSV format
-now = datetime.now() # current date and time
-date_time = now.strftime("%d_%m_%Y_%H%M%S")
+#now = datetime.now() # current date and time
+#date_time = now.strftime("%d_%m_%Y_%H%M%S")
 file_name = 'pccom-componentes_'+date_time+'.csv'
 df.to_csv(file_name,index = False, encoding='utf-8')
 
@@ -99,12 +99,10 @@ df.to_csv(file_name,index = False, encoding='utf-8')
 end = time.time()
 total_time = end - start
 total_time = str(round(total_time,2))
+
 print()
 print('Time of the SCRIPT execution: '+ total_time +' seconds')
 print()
-print('**********************************************************')
-print('THE FILE NAME CONTAINS THE DATE AND HOUR IN WHICH IS SAVED')
-print('**********************************************************')
 
 #close the driver and the browser gets closed
 driver.close()
